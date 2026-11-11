@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Management System</title>
+    <link rel="stylesheet" href="restaurant project.css">
+</head>
+<body>
+
+<header>
+    <h1>Lovely Restaurant</h1>
+    <p>A tast of home, away from home</p>
+</header>
+
+<nav>
+    <button onclick="showPage('home', this)" class="active">Home</button>
+    <button onclick="showPage('menu', this)">Food Menu</button>
+    <button onclick="showPage('booking', this)">Table Booking</button>
+    <button onclick="showPage('order', this)">Place Order</button>
+    <button onclick="showPage('billing', this)">Billing</button>
+    <button onclick="showPage('contact', this)">Contact Us</button>
+</nav>
+
+<!-- Home Page -->
+<section id="home" class="page active">
+    <h2>Welcome to Lovely Restaurant</h2>
+    <div class="box">
+        <h3>Enjoy Delicious Food!</h3>
+        
+        <button onclick="showPage('menu')">Explore Menu</button>
+    </div>
+</section>
+
+<!-- Food Menu -->
+<section id="menu" class="page">
+    <h2>Our Food Menu</h2>
+
+    <div class="box">
+        <h3>Pizza</h3>
+        <p>Price: ₹250</p>
+    </div>
+
+    <div class="box">
+        <h3>Burger</h3>
+        <p>Price: ₹120</p>
+    </div>
+
+    <div class="box">
+        <h3>Chicken Biryani</h3>
+        <p>Price: ₹200</p>
+    </div>
+
+    <div class="box">
+        <h3>Cold Drink</h3>
+        <p>Price: ₹50</p>
+    </div>
+</section>
+
+<!-- Table Booking -->
+<section id="booking" class="page">
+    <h2>Table Booking</h2>
+
+    <div class="box">
+        <form onsubmit="bookTable(event)">
+            <input type="text" placeholder="Customer Name" required>
+            <input type="tel" placeholder="Phone Number" required>
+            <input type="date" required>
+            <input type="time" required>
+
+            <select required>
+                <option value="">Select Table</option>
+                <option>Table 1</option>
+                <option>Table 2</option>
+                <option>Table 3</option>
+                <option>Table 4</option>
+            </select>
+
+            <input type="number" placeholder="Number of Guests" min="1" required>
+
+            <button type="submit">Book Now</button>
+        </form>
+        <p id="bookingMessage"></p>
+    </div>
+</section>
+
+<!-- Place Order -->
+<section id="order" class="page">
+    <h2>Place Your Order</h2>
+
+    <div class="box">
+        <form onsubmit="placeOrder(event)">
+            <input type="text" placeholder="Customer Name" required>
+
+            <select id="food" required>
+                <option value="">Select Food</option>
+                <option value="250">Pizza - ₹250</option>
+                <option value="120">Burger - ₹120</option>
+                <option value="200">Chicken Biryani - ₹200</option>
+                <option value="50">Cold Drink - ₹50</option>
+            </select>
+
+            <input type="number" id="quantity" placeholder="Quantity" min="1" required>
+
+            <button type="submit">Submit Order</button>
+        </form>
+        <p id="orderMessage"></p>
+    </div>
+</section>
+
+<!-- Billing -->
+<section id="billing" class="page">
+    <h2>Customer Billing</h2>
+
+    <div class="box">
+        <form onsubmit="generateBill(event)">
+            <input type="text" id="customer" placeholder="Customer Name" required>
+            <input type="number" id="amount" placeholder="Food Amount" min="0" required>
+            <input type="number" id="tax" placeholder="Tax Amount" min="0" required>
+
+            <button type="submit">Generate Bill</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+</section>
+
+<!-- Contact Us -->
+<section id="contact" class="page">
+    <h2>Contact Us</h2>
+
+    <div class="box">
+        <p>Address: Near LPU Phagwara</p>
+        <p>Phone: 9876543210</p>
+        <p>Email: Lovely restaurant@gmail.com</p>
+
+        <form onsubmit="sendMessage(event)">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <p id="contactMessage"></p>
+    </div>
+</section>
+
+<footer>
+    <p> Lovely Restaurant | All Rights Reserved</p>
+</footer>
+
+<script src="restaurant file.js"></script>
+
+</body>
+</html>
